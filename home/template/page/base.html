@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" />
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        background-color: #f6f6f6;
+      }
+      .nav  {
+      display:flex          
+    }
+    .col-sm-10{
+      margin-left:25px;
+    }
+    .col-sm-10 h1{
+      margin-left:400px;
+    }
+    .bs-sliderbar{
+      margin-left:800px;
+    }
+    .bs-sliderbar li a{
+      color: #00000;
+      display: block;
+      padding:18px 20px;
+      text-decoration: none;
+    }
+    </style>
+    <div class="bs-sliderbar" style="background-color: #00000;" >
+            <ul class="nav flex-column" >
+              <li>
+                <a href="/">Thông tin cá nhân</a>
+              </li>
+              <li>  
+                <a href="/blog">Bài viết</a>
+              </li>
+              <li>
+                <a href="/contact">Liên hệ</a>
+              </li>
+              <li>
+                <a href="/login">Login</a>
+              </li>
+              <li>
+                <a href="/register">Register</a>
+              </li>
+              <li>
+                <a href="/logout">Logout</a>
+              </li>
+            </ul>
+          </div>
+  </head>
+  <body>
+    <div class="container-fluid" style="min-height:95%">
+      <div class="row">
+        <div class="col-sm-2">
+          <center>
+            <img width="100px"height="100px" src="{% static 'images/1.jpg' %}" class="responsive-img"   />
+          </center>
+        </div>
+        <div class="col-sm-10">         
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-sm-2">
+          
+        </div>
+        <div class="col-sm-10">
+          {% block content %}           
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  <footer>         
+    
+  <center>
+		<section>
+			<br><br>			
+			<a href="https://www.facebook.com/"><i style="font-size:36px; color:#4267B2; margin-right:2rem" class="fab fa-facebook"></i></a>
+			<a href="https://www.facebook.com/"><i style="font-size:36px; color:#405DE6; margin-right:2rem" class="fab fa-instagram"></i></a>
+			<a href="https://www.youtube.com/"><i style="font-size:36px; color:	#FF0000; margin-right:2rem" class="fab fa-youtube"></i></a>
+			<a href="/"><i style="font-size:36px; color:#1DA1F2; margin-right:2rem" class="fab fa-twitter"></i></a>
+		</section>		  
+  </center>
+
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+{% extends "page/base.html" %}
+{% block title %} Blog {% endblock %} 
+{% load static %}
+{% block content %}
+<div id="main-wrapper">
+  <div class="wrapper style3">
+    <div class="inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-12-medium">
+            <li><a href="{% url 'add_blog'%}">Thêm Blog</a></li>
+            <!-- Article list -->
+            <section class="box article-list">
+              <h2 class="icon fa-file-alt">Bài đăng </h2>
+              <!-- Excerpt -->
+              {% for post in Posts %}
+                <article class="box excerpt">
+                <div class="row">
+                  <div class="col-4">                   
+                  <div class="col-8">
+                    <header>
+                      <span class="date">{{post.date|date:"d-m-Y"}}</span>
+                      <h3><a href="{% url 'post' post.id%}">{{post.title}}</a></h3>
+                    </header>
+                    <p>{{post.description}}</p><hr>
+                    <span>{{post.author}}</span><br><br><br>
+                    <div style="margin-left:0px" class="row">
+                      <a href="{{post.id}}" >Đọc thêm</a>
+                      {% if user.is_superuser or user.id == post.author.id %} 
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </article>
+              {% endfor %}
+            </section>
+          </div>         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
